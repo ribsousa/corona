@@ -4,12 +4,11 @@
     hide-overlay
     inset
   >
-    <v-sheet height="240" class="pt-5">
+    <v-sheet height="233" class="pa-5">
       <v-card
         flat
         tile
         outlined
-        max-width="540"
         class="mx-auto"
       >
         <v-toolbar tile flat>
@@ -42,7 +41,7 @@
               >
               </v-img>
             </v-avatar>
-            <span class="ml-4">{{stateSelected.state}}</span>
+            <span class="ml-3">{{stateSelected.state}}</span>
           </v-btn>
           <v-spacer></v-spacer>
         </v-toolbar>
