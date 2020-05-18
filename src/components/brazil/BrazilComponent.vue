@@ -139,9 +139,9 @@ export default {
         { text: '', align: 'start', value: 'flag', filterable: false, sortable: false },
         { text: 'State', value: 'state' },
         { text: 'UF', value: 'uf', filterable: false },
-        { text: 'Cases', value: 'cases', filterable: false },
+        { text: 'Confirmed', value: 'cases', filterable: false },
         { text: 'Deaths', value: 'deaths', filterable: false },
-        { text: 'Suspects', value: 'suspects', filterable: false },
+        // { text: 'Suspects', value: 'suspects', filterable: false },
         { text: 'Lethality', value: 'lethality', filterable: false },
         { text: 'Last update', value: 'datetime', filterable: false }
       ],

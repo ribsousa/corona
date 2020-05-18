@@ -8,7 +8,7 @@
     >
       <v-card outlined tile class="pl-2 pr-2">
           <v-card-title class="overline">
-            <v-icon left>mdi-earth</v-icon> World Coutries
+            <v-icon left>mdi-earth</v-icon> Global
           </v-card-title>
           <v-data-table
             :headers="headers"
@@ -112,6 +112,9 @@
             <template v-slot:item.recovered="{ item }">
               {{ item.recovered | numeralFormat() }}
             </template>
+            <template v-slot:item.lethality="{ item }">
+              {{ percentage(item.deaths, item.confirmed) | numeralFormat('0.00%') }}
+            </template>
             <template v-slot:item.updated_at="{ item }">
               {{ item.updated_at | moment("from", "now") }}
             </template>
@@ -137,12 +140,13 @@ export default {
       transition: 'scroll-y-transition',
       search: null,
       headers: [
-        { text: '', align: 'start', value: 'flag' },
+        { text: '', align: 'start', value: 'flag', sortable: false },
         { text: 'Country', value: 'country' },
-        { text: 'Cases', value: 'cases', filterable: false },
+        // { text: 'Cases', value: 'cases', filterable: false },
         { text: 'Confirmed', value: 'confirmed', filterable: false },
         { text: 'Deaths', value: 'deaths', filterable: false },
         { text: 'Recovered', value: 'recovered', filterable: false },
+        { text: 'Lethality', value: 'lethality', filterable: false, sortable: false },
         { text: 'Last update', value: 'updated_at', filterable: false }
       ],
       countrySelected: {},

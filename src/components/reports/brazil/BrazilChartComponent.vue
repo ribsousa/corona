@@ -16,11 +16,11 @@
         </v-icon>
         Brazil Reporter
         <v-spacer/>
-        <v-tooltip bottom color="orange lighten-1">
+        <v-tooltip bottom color="green lighten-1">
           <template v-slot:activator="{ on }">
             <v-btn
               icon
-              color="orange"
+              color="green"
               :loading="loading"
               @click="getCountry()"
               v-on="on"
@@ -43,12 +43,12 @@
           </template>
           <span>Image file</span>
         </v-tooltip>
-        <v-tooltip bottom color="green lighten-1">
+        <v-tooltip bottom color="orange lighten-1">
           <template v-slot:activator="{ on }">
             <v-btn
               icon
               :loading="downloading"
-              color="green lighten-2"
+              color="orange lighten-2"
               @click="exportPdf()"
               v-on="on"
             >

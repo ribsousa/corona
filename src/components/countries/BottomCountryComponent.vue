@@ -14,7 +14,7 @@
         <v-toolbar tile flat>
           <v-spacer></v-spacer>
           <v-btn text tile>
-            World
+            Global
             <country-flag country='un'/>
           </v-btn>
 

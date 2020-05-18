@@ -14,13 +14,13 @@
         >
           mdi-radar
         </v-icon>
-        World Reporter
+        Global Reporter
         <v-spacer/>
-        <v-tooltip bottom color="orange lighten-1">
+        <v-tooltip bottom color="green lighten-1">
           <template v-slot:activator="{ on }">
             <v-btn
               icon
-              color="orange"
+              color="green"
               :loading="loading"
               @click="loadCountries()"
               v-on="on"
@@ -43,12 +43,12 @@
           </template>
           <span>Image file</span>
         </v-tooltip>
-        <v-tooltip bottom color="green lighten-1">
+        <v-tooltip bottom color="orange lighten-1">
           <template v-slot:activator="{ on }">
             <v-btn
               icon
               :loading="downloading"
-              color="green lighten-2"
+              color="orange lighten-2"
               @click="exportPdf()"
               v-on="on"
             >
@@ -143,10 +143,10 @@ export default {
       const dataUrl = canvas.toDataURL('image/png', 1.0)
       const doc = new JsPdf()
       doc.setFontSize(10)
-      doc.text(10, 25, `Graphic World Report (Covid19) - ${this.$options.filters.moment(new Date(), 'YYYY/MM/DD HH:mm:ss')}`)
+      doc.text(10, 25, `Graphic Global Report (Covid19) - ${this.$options.filters.moment(new Date(), 'YYYY/MM/DD HH:mm:ss')}`)
       doc.addImage(dataUrl, 'png', 60, 40)
       doc.text(10, 280, `Fonte: ${location.href}`)
-      doc.save('World Report')
+      doc.save('Global Report')
       this.downloading = false
       this.$snotify.success('Downloaded file', 'Success!')
     },
@@ -155,7 +155,7 @@ export default {
       const canvas = document.getElementById('polar-chart')
       const dataUrl = canvas.toDataURL('image/png', 1.0)
       const link = document.createElement('a')
-      link.download = 'World Report'
+      link.download = 'Global Report'
       link.href = dataUrl
       link.click()
       this.$snotify.success('Downloaded file', 'Success!')
