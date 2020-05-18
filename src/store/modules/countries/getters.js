@@ -12,6 +12,7 @@ export default {
     })
     return total
   },
+
   HighestDeaths: state => {
     const countries = state.items.data
     let countryFewerDeaths = {}

@@ -37,8 +37,21 @@
             @click="select"
             @click:close="remove(item)"
           >
-            <strong>{{ item.country }}</strong>&nbsp;
+            <v-avatar left>
+              <v-img :src="`${baseUrl}${flagsPath}/countries/${getIsoCode(item.country)}.png`"></v-img>
+            </v-avatar>
+            <strong>{{ getIsoCode(item.country) }}</strong>&nbsp;
           </v-chip>
+        </template>
+        <template v-slot:item="data">
+          <v-list-item-avatar>
+            <v-avatar size="24">
+              <v-img :src="`${baseUrl}${flagsPath}/countries/${getIsoCode(data.item.country)}.png`"></v-img>
+            </v-avatar>
+          </v-list-item-avatar>
+          <v-list-item-content>
+              <v-list-item-title v-html="data.item.country"></v-list-item-title>
+          </v-list-item-content>
         </template>
       </v-autocomplete>
       <CompareShartComponent
@@ -51,10 +64,14 @@
 </template>
 
 <script>
+import { FLAGS_PATH } from '@/config/configs'
+import isoCodes from '../../../config/isoCodes.json'
 import CompareShartComponent from './CompareShartComponent'
 
 export default {
   data: () => ({
+    flagsPath: FLAGS_PATH,
+    baseUrl: process.env.BASE_URL,
     SelectedCountries: [],
     loading: false,
     country: []
@@ -136,6 +153,12 @@ export default {
 
     compareChange (country) {
       this.$emit('compareChange', country)
+    },
+
+    getIsoCode (country) {
+      const codes = JSON.parse(JSON.stringify(isoCodes))
+      const result = codes.filter(code => code.name === country)
+      return result[0].iso_code
     }
   },
 

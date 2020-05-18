@@ -13,7 +13,7 @@
       >
         <v-toolbar tile flat>
           <v-spacer></v-spacer>
-          <v-btn text>
+          <v-btn text tile>
             {{country.country}}
             <country-flag country='br'/>
           </v-btn>
@@ -35,7 +35,7 @@
           </v-tooltip>
 
           <v-btn tile text class="ml-3">
-            <v-avatar tile size="23" left>
+            <v-avatar tile left width="28" min-width="20" height="20">
               <v-img
                 :src="`${baseUrl}${flagsPath}${stateSelected.uf}.png`"
               >
@@ -65,7 +65,7 @@
                 justify="center"
               >
                 <div class="text-center">
-                  <v-btn text small flat tile class="mb-1">
+                  <v-btn text small tile class="mb-1">
                     <v-icon left color="purple">mdi-virus</v-icon>
                     Confirmed Cases
                   </v-btn>
@@ -96,7 +96,7 @@
                 justify="center"
               >
                 <div class="text-center">
-                  <v-btn text small flat tile class="mb-1">
+                  <v-btn text small tile class="mb-1">
                     <v-icon left color="orange">mdi-grave-stone</v-icon>
                     Confirmed Deaths
                   </v-btn>
@@ -127,7 +127,7 @@
                 justify="center"
               >
                 <div class="text-center">
-                  <v-btn text small flat tile class="mb-1">
+                  <v-btn text small tile class="mb-1">
                      <v-icon left color="red">mdi-skull-crossbones</v-icon>
                     Lethality Rate
                   </v-btn>

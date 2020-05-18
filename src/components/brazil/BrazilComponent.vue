@@ -83,7 +83,7 @@
               </v-toolbar>
             </template>
             <template v-slot:item.flag="{ item }">
-              <v-avatar class="state-flag" tile color="blue" size="22">
+              <v-avatar class="state-flag" tile color="blue" width="28" min-width="20" height="20">
                 <v-img
                   :src="`${baseUrl}${flagsPath}${item.uf}.png`"
                   lazy-src="https://picsum.photos/22/222"
