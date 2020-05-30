@@ -1,8 +1,6 @@
 <template>
   <v-app>
-    <NavigationDrawer @closeDrawer="closeDrawer" :drawer="drawer"/>
-
-    <AppBarComponent @drawerChange="drawerChange" :drawer="drawer"/>
+    <AppBarComponent/>
 
     <v-content>
       <router-view/>
@@ -15,29 +13,16 @@
 </template>
 
 <script>
-import NavigationDrawer from '@/components/layouts/NavigationDrawer'
 import AppBarComponent from '@/components/layouts/AppBarComponent'
 import FooterComponent from '@/components/layouts/FooterComponent'
 
 export default {
   name: 'App',
   data: () => ({
-    drawer: false
+    // data
   }),
 
-  methods: {
-    drawerChange (drawerChange) {
-      this.drawer = drawerChange
-    },
-
-    closeDrawer (closeDrawer) {
-      this.drawer = closeDrawer
-      console.log(closeDrawer)
-    }
-  },
-
   components: {
-    NavigationDrawer,
     AppBarComponent,
     FooterComponent
   }

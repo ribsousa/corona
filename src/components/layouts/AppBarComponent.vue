@@ -7,14 +7,8 @@
       color="white"
       collapse-on-scroll
     >
-      <v-app-bar-nav-icon
-        @click="drawerChange()"
-      >
-
-      </v-app-bar-nav-icon>
-
       <div class="d-flex align-center">
-        <v-icon color="purple" large left @click="!drawer">mdi-virus-outline</v-icon>
+        <v-icon color="purple" large left>mdi-virus-outline</v-icon>
       </div>
 
       <v-toolbar-title>Corona</v-toolbar-title>
@@ -23,7 +17,7 @@
 
       <router-link class="app-bar-link" :to="{name: 'home'}">
         <v-btn icon>
-          <v-icon>mdi-home</v-icon>
+          <v-icon>mdi-view-dashboard-outline</v-icon>
         </v-btn>
       </router-link>
 
@@ -46,20 +40,7 @@
 export default {
   data () {
     return {
-      //
-    }
-  },
-
-  props: {
-    drawer: {
-      type: Boolean,
-      default: false
-    }
-  },
-
-  methods: {
-    drawerChange () {
-      this.$emit('drawerChange', true)
+      // data
     }
   }
 }

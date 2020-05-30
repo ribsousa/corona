@@ -18,6 +18,7 @@
             :loading="loading"
             @click:row="handleClick"
             single-select
+            sort-desc
           >
             <template v-slot:top>
               <v-toolbar flat color="white">
@@ -59,7 +60,6 @@
                       v-bind="attrs"
                       :input-value="selected"
                       close
-                      small
                       @click="select"
                       @click:close="search = '', countryChange()"
                     >
@@ -113,7 +113,13 @@
               {{ item.recovered | numeralFormat() }}
             </template>
             <template v-slot:item.lethality="{ item }">
-              {{ percentage(item.deaths, item.confirmed) | numeralFormat('0.00%') }}
+              <v-chip
+                small
+                outlined
+              >
+                <v-icon left>mdi-skull-crossbones</v-icon>
+                 {{ percentage(item.deaths, item.confirmed) | numeralFormat('0.00%') }}
+              </v-chip>
             </template>
             <template v-slot:item.updated_at="{ item }">
               {{ item.updated_at | moment("from", "now") }}

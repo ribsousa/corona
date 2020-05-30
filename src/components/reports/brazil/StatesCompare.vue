@@ -11,6 +11,7 @@
           <v-autocomplete
             ref='selectState'
             chips
+            solo
             multiple
             clearable
             hide-selected
@@ -34,7 +35,6 @@
                 v-bind="attrs"
                 :input-value="selected"
                 close
-                small
                 @click="select"
                 @click:close="remove(item)"
               >

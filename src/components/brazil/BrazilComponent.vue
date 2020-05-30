@@ -59,7 +59,6 @@
                       v-bind="attrs"
                       :input-value="selected"
                       close
-                      small
                       @click="select"
                       @click:close="search = '', stateChange()"
                     >
@@ -110,7 +109,13 @@
               {{ item.suspects | numeralFormat() }}
             </template>
             <template v-slot:item.lethality="{ item }">
-              {{ percentage(item.deaths, item.cases) | numeralFormat('0.00%') }}
+              <v-chip
+                small
+                outlined
+              >
+                <v-icon left>mdi-skull-crossbones</v-icon>
+                {{ percentage(item.deaths, item.cases) | numeralFormat('0.00%') }}
+              </v-chip>
             </template>
             <template v-slot:item.datetime="{ item }">
               {{ item.datetime | moment("from", "now") }}

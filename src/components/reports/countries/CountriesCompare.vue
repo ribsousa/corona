@@ -11,6 +11,7 @@
       <v-autocomplete
         ref='selectCountry'
         chips
+        solo
         multiple
         clearable
         return-object
@@ -33,7 +34,6 @@
             v-bind="attrs"
             :input-value="selected"
             close
-            small
             @click="select"
             @click:close="remove(item)"
           >

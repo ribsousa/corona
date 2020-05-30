@@ -32,7 +32,6 @@ export default {
     let deaths = null
     let count = 0
     countries.forEach(country => {
-      console.log(count)
       if (count === 0) {
         countryFewerDeaths = country
         deaths = country.deaths
@@ -41,7 +40,6 @@ export default {
         countryFewerDeaths = country
         deaths = country.deaths
       }
-      console.log(count)
       count++
     })
     return countryFewerDeaths

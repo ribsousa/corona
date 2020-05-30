@@ -32,3 +32,5 @@ new Vue({
   vuetify,
   render: h => h(App)
 }).$mount('#app')
+
+store.dispatch('loadLocation')
