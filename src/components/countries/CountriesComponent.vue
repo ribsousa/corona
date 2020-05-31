@@ -104,13 +104,31 @@
               {{ item.cases | numeralFormat() }}
             </template>
             <template v-slot:item.confirmed="{ item }">
-              {{ item.confirmed | numeralFormat() }}
+              <v-chip
+                small
+                outlined
+              >
+                <v-icon left color="purple">mdi-virus-outline</v-icon>
+                {{ item.confirmed | numeralFormat() }}
+              </v-chip>
             </template>
             <template v-slot:item.deaths="{ item }">
-              {{ item.deaths | numeralFormat() }}
+              <v-chip
+                small
+                outlined
+              >
+                <v-icon left color="red">mdi-heart-off</v-icon>
+                {{ item.deaths | numeralFormat() }}
+              </v-chip>
             </template>
             <template v-slot:item.recovered="{ item }">
-              {{ item.recovered | numeralFormat() }}
+              <v-chip
+                small
+                outlined
+              >
+                <v-icon left color="green">mdi-heart-pulse</v-icon>
+                {{ item.recovered | numeralFormat() }}
+              </v-chip>
             </template>
             <template v-slot:item.lethality="{ item }">
               <v-chip

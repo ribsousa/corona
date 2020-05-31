@@ -5,13 +5,20 @@
     type="card"
   >
     <v-card outlined tile>
-      <v-card-title class="overline">
-        <v-img
+      <v-toolbar
+        dense
+        flat
+        tile
+        class="overline"
+      >
+        <v-toolbar-title>
+          <v-img
             :src="`${baseUrl}${flagsPath}${state.uf}.png`"
-            max-width="28"
+            max-width="32"
             class="mr-2"
-        >
-        </v-img>
+          >
+          </v-img>
+        </v-toolbar-title>
         {{ state.uf }}
         <v-spacer/>
         <v-tooltip bottom color="green lighten-1">
@@ -28,6 +35,7 @@
           </template>
           <span>Refresh</span>
         </v-tooltip>
+        <v-divider vertical inset/>
         <v-tooltip bottom color="indigo lighten-1">
           <template v-slot:activator="{ on }">
             <v-btn
@@ -41,6 +49,7 @@
           </template>
           <span>Image file</span>
         </v-tooltip>
+        <v-divider vertical inset/>
         <v-tooltip bottom color="orange lighten-1">
           <template v-slot:activator="{ on }">
             <v-btn
@@ -55,7 +64,7 @@
           </template>
           <span>PDF file</span>
         </v-tooltip>
-      </v-card-title>
+      </v-toolbar>
       <v-card-text>
         <v-container>
           <v-row justify="space-around">

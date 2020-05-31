@@ -8,49 +8,50 @@
         >
             <v-card-title class="overline">
               <v-img
-                  :src="`${baseUrl}${flagsPath}countries/BR.png`"
-                  max-width="28"
-                  class="mr-2"
+                :src="`${baseUrl}${flagsPath}countries/BR.png`"
+                max-width="28"
+                class="mr-2"
               >
               </v-img>
               Brazil States
             </v-card-title>
-            <v-slide-group
-              v-model="model"
-              class="pa-4"
-              active-class="warning"
-              next-icon="mdi-chevron-right-circle-outline"
-              prev-icon="mdi-chevron-left-circle-outline"
-              show-arrows
-              center-active
-              mandatory
-            >
-            <v-slide-item
-                v-for="state in states"
-                :key="state.uid"
-                v-slot:default="{ active, toggle }"
-            >
-                <v-card
-                class="ma-4 pa-1"
-                height="auto"
-                width="70"
-                @click="toggle(), handleSelectItem(state)"
+            <v-card-text>
+              <v-slide-group
+                v-model="model"
+                class="pa-4"
+                active-class="warning"
+                next-icon="mdi-chevron-right-circle-outline"
+                prev-icon="mdi-chevron-left-circle-outline"
+                show-arrows
+                center-active
+                mandatory
+              >
+                <v-slide-item
+                    v-for="state in states"
+                    :key="state.uid"
+                    v-slot:default="{ active, toggle }"
                 >
-                  <v-tooltip bottom color="indigo lighten-1">
-                    <template v-slot:activator="{ on }">
-                      <v-img
-                          :src="`${baseUrl}${flagsPath}${state.uf}.png`"
-                          width="auto"
-                          v-on="on"
-                      >
-                      </v-img>
-                    </template>
-                    <span>{{state.uf}}</span>
-                  </v-tooltip>
-                </v-card>
-            </v-slide-item>
-            </v-slide-group>
-
+                    <v-card
+                    class="ma-4 pa-1"
+                    height="auto"
+                    width="70"
+                    @click="toggle(), handleSelectItem(state)"
+                    >
+                      <v-tooltip bottom color="indigo lighten-1">
+                        <template v-slot:activator="{ on }">
+                          <v-img
+                              :src="`${baseUrl}${flagsPath}${state.uf}.png`"
+                              width="auto"
+                              v-on="on"
+                          >
+                          </v-img>
+                        </template>
+                        <span>{{state.uf}}</span>
+                      </v-tooltip>
+                    </v-card>
+                </v-slide-item>
+              </v-slide-group>
+            </v-card-text>
             <v-scale-transition>
             <v-sheet
                 v-if="selected.state"
@@ -128,7 +129,6 @@ export default {
     },
 
     handleSelectItem (state) {
-      console.log(state)
       this.selected = state
     },
 

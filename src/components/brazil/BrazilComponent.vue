@@ -100,10 +100,22 @@
               </v-avatar>
             </template>
             <template v-slot:item.cases="{ item }">
-              {{ item.cases | numeralFormat() }}
+              <v-chip
+                small
+                outlined
+              >
+                <v-icon left color="purple">mdi-virus-outline</v-icon>
+                {{ item.cases | numeralFormat() }}
+              </v-chip>
             </template>
             <template v-slot:item.deaths="{ item }">
-              {{ item.deaths | numeralFormat() }}
+              <v-chip
+                small
+                outlined
+              >
+                <v-icon left color="red">mdi-heart-off</v-icon>
+                {{ item.deaths | numeralFormat() }}
+              </v-chip>
             </template>
             <template v-slot:item.suspects="{ item }">
               {{ item.suspects | numeralFormat() }}
