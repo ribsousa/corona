@@ -33,4 +33,4 @@ new Vue({
   render: h => h(App)
 }).$mount('#app')
 
-store.dispatch('loadLocation')
+store.dispatch('loadCoutries')

@@ -1,5 +1,5 @@
 <template>
-  <v-card v-if="selectedCountry.country"
+  <v-card
     class="mx-auto"
     outlined
     tile
@@ -46,7 +46,7 @@
         </template>
       </v-autocomplete>
     </v-toolbar>
-    <v-list-item three-line>
+    <v-list-item three-line v-if="selectedCountry.country">
       <v-list-item-content>
           <div class="overline mb-4">{{country.country}}</div>
           <v-divider/>
@@ -219,7 +219,6 @@ export default {
     },
 
     resetCountry () {
-      this.selectedCountry = {}
       this.loadLocation()
     },
 
