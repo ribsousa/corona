@@ -14,7 +14,7 @@
           item-text="country"
           label="Change country"
           v-model="selectedCountry"
-          append-icon="mdi-search"
+          append-icon="mdi-filter-variant"
           @change="getCountry()"
           return-object
           class="mt-8"

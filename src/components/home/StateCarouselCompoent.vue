@@ -6,15 +6,37 @@
             flat
             outlined
         >
-            <v-card-title class="overline">
-              <v-img
-                :src="`${baseUrl}${flagsPath}countries/BR.png`"
-                max-width="28"
-                class="mr-2"
-              >
-              </v-img>
+            <v-toolbar
+              dense
+              flat
+              tile
+              class="overline"
+            >
+              <v-toolbar-title>
+                <v-img
+                  :src="`${baseUrl}${flagsPath}countries/BR.png`"
+                  max-width="32"
+                  class="mr-2"
+                >
+                </v-img>
+              </v-toolbar-title>
               Brazil States
-            </v-card-title>
+              <v-spacer/>
+              <v-divider vertical inset/>
+              <v-tooltip bottom color="indigo lighten-1">
+              <template v-slot:activator="{ on }">
+                <v-btn
+                  icon
+                  color="indigo lighten-2"
+                  :to="{name: 'brazil'}"
+                  v-on="on"
+                >
+                  <v-icon>mdi-page-next-outline</v-icon>
+                </v-btn>
+              </template>
+              <span>More statistics</span>
+            </v-tooltip>
+            </v-toolbar>
             <v-card-text>
               <v-slide-group
                 v-model="model"

@@ -1,6 +1,6 @@
 <template>
   <v-expand-x-transition>
-    <v-card class="mx-auto pa-2 mt-5" flat tile outlined>
+    <v-card class="mx-auto mt-5" flat tile outlined>
       <v-toolbar
         dense
         floating
@@ -14,6 +14,8 @@
           item-value="ption"
           append-icon="mdi-filter-variant"
           return-object
+          solo
+          class="mt-12"
           @change="fillData()"
         >
           <template v-slot:selection="{ attrs, item, select, selected }">
@@ -62,7 +64,7 @@
       >
         <v-icon>mdi-earth</v-icon>
         </v-btn>
-        <span class="overline">World map {{ select.option }}</span>
+        <span class="overline">{{ select.option }} in the World</span>
     </v-card-actions>
     </v-card>
   </v-expand-x-transition>
@@ -75,7 +77,7 @@ import isoCodes from '../../config/isoCodes.json'
 export default {
   data: () => ({
     countriesData: {},
-    select: { option: 'Confirmed', icon: 'virus-outline', color: '#FF9800' },
+    select: { option: 'Lethality', icon: 'skull-crossbones', color: '#9C27B0' },
     items: [
       { option: 'Confirmed', icon: 'virus-outline', color: '#FF9800' },
       { option: 'Recovered', icon: 'heart-pulse', color: '#4CAF50' },

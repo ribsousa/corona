@@ -66,7 +66,7 @@
               >
                 <div class="text-center">
                   <v-btn text small tile class="mb-1">
-                    <v-icon left color="purple">mdi-virus</v-icon>
+                    <v-icon left color="purple">mdi-virus-outline</v-icon>
                     Confirmed Cases
                   </v-btn>
                   <v-divider/>
@@ -97,7 +97,7 @@
               >
                 <div class="text-center">
                   <v-btn text small tile class="mb-1">
-                    <v-icon left color="orange">mdi-grave-stone</v-icon>
+                    <v-icon left color="red">mdi-heart-off</v-icon>
                     Confirmed Deaths
                   </v-btn>
                   <v-divider/>
@@ -128,7 +128,7 @@
               >
                 <div class="text-center">
                   <v-btn text small tile class="mb-1">
-                     <v-icon left color="red">mdi-skull-crossbones</v-icon>
+                     <v-icon left color="black">mdi-skull-crossbones</v-icon>
                     Lethality Rate
                   </v-btn>
                   <v-divider/>
