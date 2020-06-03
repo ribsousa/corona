@@ -46,54 +46,56 @@
         </template>
       </v-autocomplete>
     </v-toolbar>
-    <v-list-item three-line v-if="selectedCountry.country">
-      <v-list-item-content>
-          <div class="overline mb-4">{{country.country}}</div>
-          <v-divider/>
-          <v-list-item-subtitle>
-              <v-icon left color="orange">mdi-virus-outline</v-icon>
-              <span>Confirmed: </span>
-              <span class="caption font-weight-bold">
-                  {{country.confirmed | numeralFormat(country.confirmed >= 1000 ? 'O.O a' : null)}}
-              </span>
-          </v-list-item-subtitle>
-          <v-divider/>
-          <v-list-item-subtitle>
-              <v-icon left color="green">mdi-heart-pulse</v-icon>
-              <span>Recovered: </span>
-              <span class="caption font-weight-bold">
-                  {{country.recovered | numeralFormat(country.recovered >= 1000 ? 'O.O a' : null)}}
-              </span>
-          </v-list-item-subtitle>
-          <v-divider/>
-          <v-list-item-subtitle>
-              <v-icon left color="red">mdi-heart-off</v-icon>
-              <span>Deaths: </span>
-              <span class="caption font-weight-bold">
-                  {{country.deaths | numeralFormat(country.deaths >= 1000 ? 'O.O a' : null)}}
-              </span>
-          </v-list-item-subtitle>
-          <v-divider/>
-          <v-list-item-subtitle>
-              <v-icon left color="purple">mdi-skull-crossbones</v-icon>
-              <span>Lethality: </span>
+    <v-card-text>
+      <v-sheet elevation="1" color="grey lighten-4">
+      <v-list-item three-line v-if="selectedCountry.country">
+        <v-list-item-content>
+            <div class="overline mb-4">{{country.country}}</div>
+            <v-list-item-subtitle>
+                <v-icon left color="orange">mdi-virus-outline</v-icon>
+                <span>Confirmed: </span>
                 <span class="caption font-weight-bold">
-                  {{percentage(country.deaths, country.confirmed) | numeralFormat('0.00%')}}
+                    {{country.confirmed | numeralFormat(country.confirmed >= 1000 ? 'O.O a' : null)}}
                 </span>
-          </v-list-item-subtitle>
-          <v-divider/>
-      </v-list-item-content>
-      <v-list-item-avatar
-          tile
-          size="auto"
-      >
-        <v-img
-            :src="`${baseUrl}${flagsPath}countries/${getCode(country.country)}.png`"
-            width="40"
+            </v-list-item-subtitle>
+            <v-divider/>
+            <v-list-item-subtitle>
+                <v-icon left color="green">mdi-heart-pulse</v-icon>
+                <span>Recovered: </span>
+                <span class="caption font-weight-bold">
+                    {{country.recovered | numeralFormat(country.recovered >= 1000 ? 'O.O a' : null)}}
+                </span>
+            </v-list-item-subtitle>
+            <v-divider/>
+            <v-list-item-subtitle>
+                <v-icon left color="red">mdi-heart-off</v-icon>
+                <span>Deaths: </span>
+                <span class="caption font-weight-bold">
+                    {{country.deaths | numeralFormat(country.deaths >= 1000 ? 'O.O a' : null)}}
+                </span>
+            </v-list-item-subtitle>
+            <v-divider/>
+            <v-list-item-subtitle>
+                <v-icon left color="purple">mdi-skull-crossbones</v-icon>
+                <span>Lethality: </span>
+                  <span class="caption font-weight-bold">
+                    {{percentage(country.deaths, country.confirmed) | numeralFormat('0.00%')}}
+                  </span>
+            </v-list-item-subtitle>
+        </v-list-item-content>
+        <v-list-item-avatar
+            tile
+            size="auto"
         >
-        </v-img>
-      </v-list-item-avatar>
-      </v-list-item>
+          <v-img
+              :src="`${baseUrl}${flagsPath}countries/${getCode(country.country)}.png`"
+              width="35"
+          >
+          </v-img>
+        </v-list-item-avatar>
+        </v-list-item>
+      </v-sheet>
+      </v-card-text>
       <v-card-actions>
         <v-btn
         icon
@@ -226,3 +228,6 @@ export default {
   }
 }
 </script>
+
+<style lang="sass">
+</style>

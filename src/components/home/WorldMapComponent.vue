@@ -62,9 +62,9 @@
         :color="select.color"
         :to="{name: 'world'}"
       >
-        <v-icon>mdi-earth</v-icon>
+        <v-icon>mdi-{{select.icon}}</v-icon>
         </v-btn>
-        <span class="overline">{{ select.option }} in the World</span>
+        <span class="overline">{{ select.option }} in the World Map</span>
     </v-card-actions>
     </v-card>
   </v-expand-x-transition>

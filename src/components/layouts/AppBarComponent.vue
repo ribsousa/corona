@@ -8,7 +8,7 @@
       collapse-on-scroll
     >
       <div class="d-flex align-center">
-        <v-icon color="purple" large left>mdi-virus-outline</v-icon>
+        <v-icon color="purple" large left>mdi-meteor</v-icon>
       </div>
 
       <v-toolbar-title>Corona</v-toolbar-title>
