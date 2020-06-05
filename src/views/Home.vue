@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-row v-if="!deferredPrompt">
+    <v-row v-if="deferredPrompt">
       <v-col cols="12" md="6" lg="6"  class="mx-auto">
         <v-banner app single-line tile class="body-2">
           <v-icon
