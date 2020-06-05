@@ -7,10 +7,10 @@
     hide-on-scroll
     scroll-threshold=10
   >
-    <v-btn href="http://gleebe.com" target="_blank">
+    <v-btn href="https://gleebe.com" target="_blank">
       <span>Developer</span>
       <v-avatar size="28">
-        <v-img src="http://gleebe.com/images/0.jpg"></v-img>
+        <v-img src="https://gleebe.com/images/0.jpg"></v-img>
       </v-avatar>
     </v-btn>
 
