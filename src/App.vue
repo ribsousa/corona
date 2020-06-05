@@ -37,8 +37,19 @@ import FooterComponent from '@/components/layouts/FooterComponent'
 export default {
   name: 'App',
   data: () => ({
-    fab: false
+    fab: false,
+    deferredPrompt: undefined
   }),
+
+  created () {
+    this.$on('canInstall', event => {
+      // Prevent Chrome 67 and earlier from automatically showing the prompt:
+      event.preventDefault()
+
+      // Stash the event so it can be triggered later:
+      this.deferredPrompt = event
+    })
+  },
 
   methods: {
     onScroll (e) {
@@ -49,6 +60,22 @@ export default {
 
     toTop () {
       this.$vuetify.goTo(0)
+    },
+
+    promptInstall () {
+      // Show the prompt:
+      this.deferredPrompt.prompt()
+
+      // Wait for the user to respond to the prompt:
+      this.deferredPrompt.userChoice.then(choiceResult => {
+        if (choiceResult.outcome === 'accepted') {
+          console.log('User accepted the install prompt')
+        } else {
+          console.log('User dismissed the install prompt')
+        }
+
+        this.deferredPrompt = null
+      })
     }
   },
 

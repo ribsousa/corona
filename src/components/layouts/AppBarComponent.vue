@@ -8,7 +8,7 @@
       collapse-on-scroll
     >
       <div class="d-flex align-center">
-        <v-icon color="purple" large left>mdi-meteor</v-icon>
+        <v-icon color="purple" large left>mdi-virus-outline</v-icon>
       </div>
 
       <v-toolbar-title>Corona</v-toolbar-title>
@@ -17,7 +17,7 @@
 
       <router-link class="app-bar-link" :to="{name: 'home'}">
         <v-btn icon>
-          <v-icon>mdi-view-dashboard-outline</v-icon>
+          <v-icon color="orange">mdi-view-dashboard-outline</v-icon>
         </v-btn>
       </router-link>
 

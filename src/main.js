@@ -7,10 +7,12 @@ import vuetify from './plugins/vuetify'
 import CountryFlag from 'vue-country-flag'
 import VueNumerals from 'vue-numerals'
 import Snotify, { SnotifyPosition } from 'vue-snotify'
+import VuePwaInstallPlugin from 'vue-pwa-install'
 
 import 'vue-snotify/styles/dark.css'
 
 Vue.config.productionTip = false
+Vue.use(VuePwaInstallPlugin)
 
 Vue.use(Snotify, {
   toast: {

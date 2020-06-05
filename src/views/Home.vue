@@ -1,5 +1,32 @@
 <template>
   <v-container>
+    <v-row v-if="!deferredPrompt">
+      <v-col cols="12" md="6" lg="6"  class="mx-auto">
+        <v-banner app single-line tile class="body-2">
+          <v-icon
+            slot="icon"
+            color="warning"
+            size="30"
+          >
+            mdi-shape-rectangle-plus
+          </v-icon>
+          Add to home screen
+
+          <template v-slot:actions>
+            <v-btn
+              color="primary"
+              text
+              tile
+              small
+              outlined
+              @click="promptInstall()"
+            >
+              <v-icon left>mdi-check-underline</v-icon> yes
+            </v-btn>
+          </template>
+        </v-banner>
+      </v-col>
+    </v-row>
     <v-row>
       <v-col cols="12" md="4" lg="4">
         <HomeComponent/>
@@ -24,6 +51,38 @@ import WorldNowComponent from '@/components/home/WorldNowComponent'
 
 export default {
   name: 'Home',
+  data: () => ({
+    deferredPrompt: undefined
+  }),
+
+  created () {
+    this.$on('canInstall', event => {
+      // Prevent Chrome 67 and earlier from automatically showing the prompt:
+      event.preventDefault()
+
+      // Stash the event so it can be triggered later:
+      this.deferredPrompt = event
+    })
+  },
+
+  methods: {
+    promptInstall () {
+      // Show the prompt:
+      this.deferredPrompt.prompt()
+
+      // Wait for the user to respond to the prompt:
+      this.deferredPrompt.userChoice.then(choiceResult => {
+        if (choiceResult.outcome === 'accepted') {
+          console.log('User accepted the install prompt')
+        } else {
+          console.log('User dismissed the install prompt')
+        }
+
+        this.deferredPrompt = null
+      })
+    }
+  },
+
   components: {
     HomeComponent,
     WorldMapComponent,
