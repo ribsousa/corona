@@ -1,8 +1,15 @@
 <template>
   <v-container>
-    <v-row v-if="deferredPrompt">
+    <v-row v-if="!deferredPrompt">
       <v-col cols="12" md="6" lg="6"  class="mx-auto">
-        <v-banner app single-line tile class="body-2">
+        <v-banner
+          app
+          tile
+          single-line
+          elevation="0"
+          class="body-2"
+          color="grey lighten-4"
+        >
           <v-icon
             slot="icon"
             color="warning"
@@ -14,15 +21,24 @@
 
           <template v-slot:actions>
             <v-btn
-              color="primary"
-              text
-              tile
+              icon
+              color="success"
               small
               outlined
               @click="promptInstall()"
             >
-              <v-icon left>mdi-check-underline</v-icon> yes
+              <v-icon>mdi-check</v-icon>
             </v-btn>
+            <v-btn
+              icon
+              small
+              outlined
+              color="grey lighten-1"
+              @click="cancelInstall()"
+            >
+              <v-icon>mdi-close</v-icon>
+            </v-btn>
+
           </template>
         </v-banner>
       </v-col>
@@ -52,7 +68,7 @@ import WorldNowComponent from '@/components/home/WorldNowComponent'
 export default {
   name: 'Home',
   data: () => ({
-    deferredPrompt: undefined
+    deferredPrompt: null
   }),
 
   created () {
@@ -80,6 +96,10 @@ export default {
 
         this.deferredPrompt = null
       })
+    },
+
+    cancelInstall () {
+      this.deferredPrompt = null
     }
   },
 
