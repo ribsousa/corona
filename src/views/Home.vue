@@ -68,7 +68,7 @@ import WorldNowComponent from '@/components/home/WorldNowComponent'
 export default {
   name: 'Home',
   data: () => ({
-    deferredPrompt: null
+    deferredPrompt: undefined
   }),
 
   created () {
@@ -99,7 +99,7 @@ export default {
     },
 
     cancelInstall () {
-      this.deferredPrompt = null
+      this.deferredPrompt = undefined
     }
   },
 
