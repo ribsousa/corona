@@ -85,13 +85,13 @@ export default {
 
   methods: {
     loadStates () {
-    this.loading = true
-    this.$store.dispatch('loadStates')
-      .then(() => {
-        this.loading = false
-      })
-      .catch(error => console.log(error))
-      .finally(() => { this.loading = false })
+      this.loading = true
+      this.$store.dispatch('loadStates')
+        .then(() => {
+          this.loading = false
+        })
+        .catch(error => console.log(error))
+        .finally(() => { this.loading = false })
     },
 
     percentage: (percentage, valor) => (percentage / (valor * 100)) * 100
