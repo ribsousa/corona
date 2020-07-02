@@ -1,3 +1,9 @@
+<p align="center">
+    <a href="https://corona.gleebe.com/">
+        <img src="https://corona.gleebe.com/img/icons/msapplication-icon-144x144.png" alt="Corona" width="10%" height="10%" />
+    </a>
+</p>
+
 # corona
 
 ## Project setup
